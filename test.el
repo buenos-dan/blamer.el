@@ -76,6 +76,21 @@ But! What we can do with this enormous commit message? Nothing. 123955!!.~\n\n")
     ))
 
 
+(ert-deftest test-parse-commit-message-from-windows-machine ()
+  "Test commit parser regexp for windows commit message."
+  (let ((commit-msg-1 "my@gmail.com commit b645fb973309696f51719b03f8a4f478a0e670f2
+
+Author: ISouthRain <my@gmail.com>
+
+Date:   Sun Aug 4 12:35:21 2024 +0800
+
+    deadgrep: Add this package: 替代 rg(ripgrep) 包
+
+"))
+    (string-match blamer--commit-message-regexp commit-msg-1)
+    (should (equal (match-string 1 commit-msg-1) "deadgrep: Add this package: 替代 rg(ripgrep) 包\n\n"))))
+
+
 (defun format-date-to-string (date)
   "Format date to test string."
   (format-time-string "%Y-%m-%d" date))
