@@ -91,6 +91,21 @@ Date:   Sun Aug 4 12:35:21 2024 +0800
     (should (equal (match-string 1 commit-msg-1) "deadgrep: Add this package: 替代 rg(ripgrep) 包\n\n"))))
 
 
+(ert-deftest test-parse-commit-message-with-cjk-characters ()
+  "Test commit parser regexp for windows commit message."
+  (let ((commit-msg-1 "my@gmail.com commit b645fb973309696f51719b03f8a4f478a0e670f2
+
+Author: ISouthRain <my@gmail.com>
+
+Date:   Sun Aug 4 12:35:21 2024 +0800
+
+    magit: 添加自动分裂窗口功能
+
+"))
+    (string-match blamer--commit-message-regexp commit-msg-1)
+    (should (equal (match-string 1 commit-msg-1) "magit: 添加自动分裂窗口功能\n\n"))))
+
+
 (defun format-date-to-string (date)
   "Format date to test string."
   (format-time-string "%Y-%m-%d" date))
@@ -171,3 +186,12 @@ Date:   Sun Aug 4 12:35:21 2024 +0800
   (should (equal "15:40" (blamer--truncate-time "15:40:22")))
   (should (equal "00:00" (blamer--truncate-time "00:00:00")))
   (should (equal "12:30" (blamer--truncate-time "12:30:21"))))
+
+
+(ert-deftest test-replace-caret-in-sha-commit ()
+  "Test replacing caret in commit sha."
+  (should (equal "fcb7278" (blamer--remove-commit-hash-caret "^fcb7278"))))
+
+(ert-deftest test-note-replace-caret-in-sha-commit ()
+  "Test not replacing caret in commit sha."
+  (should (equal "fcb7278" (blamer--remove-commit-hash-caret "fcb7278"))))
