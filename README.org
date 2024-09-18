@@ -244,22 +244,5 @@ For more information check [[https://github.com/doublep/eldev/][this]] repo
 [[./images/posframe.png]]
 
 * Similar packages
- - [[https://github.com/emacs-sideline/sideline-blame][Sideline blame]]
-
-* TODO Blamer.el plans [16/16]
-- [X] Get necessary information about current line under cursor
-- [X] Get commit info by current hash (if necessary)
-- [X] Get background color if hl-mode is exist and enabled (transparency)
-- [X] Visualize information in special format
-- [X] blamer-mode implementation
-- [X] Write tests for regexps
-- [X] IDLE time before showing
-- [X] Special font for blame.
-- [X] Truncate long commit line
-- [X] Add pretty date format
-- [X] Pretty author name
-- [X] Add support for common line number changed (might be deleted from external source, or evil keys)
-- [X] Add support for global mode
-- [X] Add support for multi line selection
-- [X] Canonical blamer format + templates.
-- [X] Clickable annotations
+- [[https://github.com/emacs-sideline/sideline-blame][Sideline blame]]
+- [[https://github.com/ISouthRain/emsg-blame][emsg-blame]]
