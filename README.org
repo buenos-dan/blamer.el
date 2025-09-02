@@ -122,6 +122,8 @@ Can accept
 - ='overlay-popup= - nice overlay popup (see images/blamer-pretty-popup-dark.jpg)
 - ='margin-overlay= - show commit info in the margin
 - ='posframe-popup= - posframe popup (see images/posframe.png)
+- ='echo-area= - show commit info for the current line in the echo area.
+
   *Warning* The 'overlay-popup feature highly dependent on you custom fonts, it may have worse alignment.
 **** Overlay popup position
 =blamer--overlay-popup-position= - is position for the overlay popup, it could be:
@@ -179,8 +181,12 @@ If you have an incorrect view of the avatar or line breaks, try to play with the
 
 Useful for self-hosted Gitlab or GitHub instances.
 
+**** Echo area
+/Echo area specific customizations/
 
+~blamer-echo-area-inset~ - number of leading characters the remove when rendering in the echo area.
 
+~blamer-echo-area-strip-face-attributes~ - list of face-attributes to remove when rendering in the echo area.
 
 * Interactive binding
 You can bind the mouse click event and pass custom handler. Where the handler is callback function with commit-info arg.
